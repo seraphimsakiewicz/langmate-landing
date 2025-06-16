@@ -1,5 +1,5 @@
 ---
-
+// This is the frontmatter - we can add JavaScript here if needed
 ---
 
 <html lang="en">
@@ -8,9 +8,209 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Langmate - Practice Languages with Native Speakers</title>
+		<meta name="description" content="Practice languages with native speakers through structured video sessions. Join timed conversations and improve your fluency with real people from around the world." />
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<main class="container">
+			<div class="content">
+				<!-- Main heading with underline -->
+				<h1 class="title">
+					Langmate
+					<div class="title-underline"></div>
+				</h1>
+				
+				<!-- Subtitle -->
+				<h2 class="subtitle">
+					Practice languages with native speakers through<br/>
+					structured video sessions
+				</h2>
+				
+				<!-- Description -->
+				<p class="description">
+					Join timed conversations, swap roles naturally, and improve<br/>
+					your fluency with real people from around the world.
+				</p>
+				
+				<!-- Email signup form with Netlify integration -->
+				<form name="email-signup" method="POST" data-netlify="true" class="signup-form">
+					<input type="hidden" name="form-name" value="email-signup" />
+					
+					<div class="form-group">
+						<input 
+							type="email" 
+							name="email" 
+							placeholder="Enter your email"
+							required 
+							class="email-input"
+						/>
+						<button type="submit" class="submit-button">
+							Get Early Access
+						</button>
+					</div>
+				</form>
+				
+				<!-- Footer text -->
+				<p class="footer-text">
+					Coming soon • No spam, promise
+				</p>
+			</div>
+		</main>
+
+		<style>
+			/* Reset and base styles */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				background-color: #fafafa;
+				color: #333;
+				line-height: 1.6;
+			}
+
+			/* Main container */
+			.container {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem 1rem;
+			}
+
+			.content {
+				text-align: center;
+				max-width: 600px;
+				width: 100%;
+			}
+
+			/* Title with underline */
+			.title {
+				font-size: 3.5rem;
+				font-weight: 600;
+				color: #6366f1;
+				margin-bottom: 2rem;
+				position: relative;
+			}
+
+			.title-underline {
+				width: 60px;
+				height: 4px;
+				background-color: #6366f1;
+				margin: 0.5rem auto 0;
+			}
+
+			/* Subtitle */
+			.subtitle {
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: #1f2937;
+				margin-bottom: 1.5rem;
+				line-height: 1.4;
+			}
+
+			/* Description */
+			.description {
+				font-size: 1.1rem;
+				color: #6b7280;
+				margin-bottom: 3rem;
+				line-height: 1.6;
+			}
+
+			/* Form styling */
+			.signup-form {
+				margin-bottom: 2rem;
+			}
+
+			.form-group {
+				display: flex;
+				gap: 0;
+				max-width: 400px;
+				margin: 0 auto;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+			}
+
+			.email-input {
+				flex: 1;
+				padding: 1rem 1.5rem;
+				border: none;
+				font-size: 1rem;
+				background-color: white;
+				outline: none;
+			}
+
+			.email-input::placeholder {
+				color: #9ca3af;
+			}
+
+			.submit-button {
+				padding: 1rem 2rem;
+				background-color: #6366f1;
+				color: white;
+				border: none;
+				font-size: 1rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: background-color 0.2s ease;
+			}
+
+			.submit-button:hover {
+				background-color: #5555eb;
+			}
+
+			/* Footer text */
+			.footer-text {
+				color: #9ca3af;
+				font-size: 0.9rem;
+			}
+
+			/* Responsive design */
+			@media (max-width: 768px) {
+				.title {
+					font-size: 2.5rem;
+				}
+
+				.subtitle {
+					font-size: 1.25rem;
+				}
+
+				.description {
+					font-size: 1rem;
+				}
+
+				.form-group {
+					flex-direction: column;
+					border-radius: 8px;
+				}
+
+				.email-input {
+					border-radius: 8px 8px 0 0;
+				}
+
+				.submit-button {
+					border-radius: 0 0 8px 8px;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.container {
+					padding: 1rem;
+				}
+
+				.title {
+					font-size: 2rem;
+				}
+
+				.subtitle br,
+				.description br {
+					display: none;
+				}
+			}
+		</style>
 	</body>
 </html>
