@@ -2,7 +2,7 @@
 // This is the frontmatter - we can add JavaScript here if needed
 
 // Import the CSS file
-import './styles/landing.css';
+import "./styles/landing.css";
 ---
 
 <html lang="en">
@@ -12,7 +12,10 @@ import './styles/landing.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Langmate - Practice Languages with Native Speakers</title>
-		<meta name="description" content="Practice languages with native speakers through structured video sessions. Join timed conversations and improve your fluency with real people from around the world." />
+		<meta
+			name="description"
+			content="Practice languages with native speakers through structured video sessions. Join timed conversations and improve your fluency with real people from around the world."
+		/>
 	</head>
 	<body>
 		<main class="container">
@@ -22,29 +25,39 @@ import './styles/landing.css';
 					<img src="/logo.svg" alt="Langmate" class="logo" />
 					<div class="title-underline"></div>
 				</div>
-				
+
 				<!-- Subtitle -->
 				<h2 class="subtitle">
-					Practice languages with native speakers through<br/>
+					Practice languages with native speakers through<br />
 					structured video sessions
 				</h2>
-				
+
 				<!-- Description -->
 				<p class="description">
-					Join timed conversations, swap roles naturally, and improve<br/>
+					Join timed conversations, swap roles naturally, and improve<br
+					/>
 					your fluency with real people from around the world.
 				</p>
-				
+
 				<!-- Email signup form with Netlify integration -->
-				<form name="email-signup" method="POST" data-netlify="true" class="signup-form">
-					<input type="hidden" name="form-name" value="email-signup" />
-					
+				<form
+					name="email-signup"
+					method="POST"
+					data-netlify="true"
+					class="signup-form"
+				>
+					<input
+						type="hidden"
+						name="form-name"
+						value="email-signup"
+					/>
+
 					<div class="form-group">
-						<input 
-							type="email" 
-							name="email" 
+						<input
+							type="email"
+							name="email"
 							placeholder="Enter your email"
-							required 
+							required
 							class="email-input"
 						/>
 						<button type="submit" class="submit-button">
@@ -52,14 +65,14 @@ import './styles/landing.css';
 						</button>
 					</div>
 				</form>
-				
+
 				<!-- Footer text -->
+				<p class="footer-text">Coming soon • No spam, I promise!</p>
 				<p class="footer-text">
-					Coming soon • No spam, I promise!
-				</p>
-				<p class="footer-text">
-					Langmate is a project by <a
-					href="https://www.linkedin.com/in/seraphim-sakiewicz/">Seraphim Sakiewicz</a>
+					Langmate is a project by
+					<a href="https://www.linkedin.com/in/seraphim-sakiewicz/"
+						>Seraphim Sakiewicz</a
+					>
 				</p>
 			</div>
 		</main>
