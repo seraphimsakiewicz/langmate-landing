@@ -219,13 +219,11 @@
 	}
 
 	.success-message-large {
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.success-icon {
 		font-size: 3rem;
-		margin-top: -2rem;
-		margin-bottom: 1rem;
 	}
 
 	.success-message-large h3 {
