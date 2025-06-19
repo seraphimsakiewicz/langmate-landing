@@ -11,6 +11,9 @@ importers:
       astro:
         specifier: ^5.9.3
         version: 5.9.3(@types/node@24.0.3)(rollup@4.43.0)(typescript@5.8.3)
+      submitjson:
+        specifier: ^0.11.0
+        version: 0.11.0
 
 packages:
 
@@ -1018,6 +1021,12 @@ packages:
   oniguruma-to-es@4.3.3:
     resolution: {integrity: sha512-rPiZhzC3wXwE59YQMRDodUwwT9FZ9nNBwQQfsd1wfdtlKEyCdRV0avrTcSZ5xlIvGRVPd/cx6ZN45ECmS39xvg==}
 
+  openapi-fetch@0.8.2:
+    resolution: {integrity: sha512-4g+NLK8FmQ51RW6zLcCBOVy/lwYmFJiiT+ckYZxJWxUxH4XFhsNcX2eeqVMfVOi+mDNFja6qDXIZAz2c5J/RVw==}
+
+  openapi-typescript-helpers@0.0.5:
+    resolution: {integrity: sha512-MRffg93t0hgGZbYTxg60hkRIK2sRuEOHEtCUgMuLgbCC33TMQ68AmxskzUlauzZYD47+ENeGV/ElI7qnWqrAxA==}
+
   p-limit@6.2.0:
     resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
     engines: {node: '>=18'}
@@ -1182,6 +1191,9 @@ packages:
   strip-ansi@7.1.0:
     resolution: {integrity: sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==}
     engines: {node: '>=12'}
+
+  submitjson@0.11.0:
+    resolution: {integrity: sha512-7NWZU5JF3zX+HnTzPx3JF3CplOwDY/ehfZ9MvHHxIv2JsnyyrCyYHuz+kLs0eN7QS6We4yvAjcRtj0RMhPmJOg==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -2648,6 +2660,12 @@ snapshots:
       regex: 6.0.1
       regex-recursion: 6.0.2
 
+  openapi-fetch@0.8.2:
+    dependencies:
+      openapi-typescript-helpers: 0.0.5
+
+  openapi-typescript-helpers@0.0.5: {}
+
   p-limit@6.2.0:
     dependencies:
       yocto-queue: 1.2.1
@@ -2909,6 +2927,10 @@ snapshots:
   strip-ansi@7.1.0:
     dependencies:
       ansi-regex: 6.1.0
+
+  submitjson@0.11.0:
+    dependencies:
+      openapi-fetch: 0.8.2
 
   tiny-inflate@1.0.3: {}
 
