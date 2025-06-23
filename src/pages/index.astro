@@ -3,6 +3,7 @@
 
 // Import the CSS file
 import "./styles.css";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <html lang="en">
@@ -41,7 +42,7 @@ import "./styles.css";
 
 				<!-- Email signup form with Netlify integration -->
 				<div id="signup-section">
-					<form name="email-signup" method="POST" class="signup-form">
+					<!-- <form name="email-signup" method="POST" class="signup-form">
 						<input
 							type="hidden"
 							name="form-name"
@@ -60,8 +61,8 @@ import "./styles.css";
 								Get Early Access
 							</button>
 						</div>
-					</form>
-
+					</form> -->
+					<ContactForm />
 					<!-- Share button for initial page -->
 					<button class="share-button" onclick="shareContent()">
 						<svg
