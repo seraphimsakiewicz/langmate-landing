@@ -1,51 +1,51 @@
 // @ts-nocheck
-function submitForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+// function submitForm(e) {
+//     e.preventDefault();
+//     const form = e.target;
+//     const formData = new FormData(form);
 
-    // Show loading state
-    const button = form.querySelector(".submit-button");
-    const responseDiv = document.getElementById("form-response");
+//     // Show loading state
+//     const button = form.querySelector(".submit-button");
+//     const responseDiv = document.getElementById("form-response");
 
-    if (!button || !responseDiv) return;
+//     if (!button || !responseDiv) return;
 
-    const originalText = button.textContent;
-    button.textContent = "Sending...";
-    button.disabled = true;
+//     const originalText = button.textContent;
+//     button.textContent = "Sending...";
+//     button.disabled = true;
 
-    fetch("/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(formData).toString(),
-    })
-        .then(() => {
-            // Hide the signup section and show success section
-            document.getElementById(
-                "signup-section",
-            ).style.display = "none";
-            document.getElementById(
-                "success-section",
-            ).style.display = "block";
+//     fetch("/", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/x-www-form-urlencoded",
+//         },
+//         body: new URLSearchParams(formData).toString(),
+//     })
+//         .then(() => {
+//             // Hide the signup section and show success section
+//             document.getElementById(
+//                 "signup-section",
+//             ).style.display = "none";
+//             document.getElementById(
+//                 "success-section",
+//             ).style.display = "block";
 
-            // Clear any error messages
-            responseDiv.innerHTML = "";
+//             // Clear any error messages
+//             responseDiv.innerHTML = "";
 
-            document
-                .querySelector(".share-button-primary")
-                ?.addEventListener("click", shareContent);
-        })
-        .catch((error) => {
-            responseDiv.innerHTML =
-                "<p class='error-message'>Oops! Something went wrong. Try again later.</p>";
-        })
-        .finally(() => {
-            button.textContent = originalText;
-            button.disabled = false;
-        });
-}
+//             document
+//                 .querySelector(".share-button-primary")
+//                 ?.addEventListener("click", shareContent);
+//         })
+//         .catch((error) => {
+//             responseDiv.innerHTML =
+//                 "<p class='error-message'>Oops! Something went wrong. Try again later.</p>";
+//         })
+//         .finally(() => {
+//             button.textContent = originalText;
+//             button.disabled = false;
+//         });
+// }
 
 // Share functionality
 async function shareContent() {
@@ -84,9 +84,9 @@ async function shareContent() {
 
 // Add event listener after DOM loads
 document.addEventListener("DOMContentLoaded", () => {
-    document
-        .querySelector(".signup-form")
-        ?.addEventListener("submit", submitForm);
+    // document
+    //     .querySelector(".signup-form")
+    //     ?.addEventListener("submit", submitForm);
 
     document
         .querySelector(".share-button")

@@ -1,28 +1,86 @@
-<form id="contactForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-  
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-  
-    <button type="submit">Send Message</button>
-  </form>
-  
-  <script type="module">
-    import SubmitJSON from 'https://unpkg.com/submitjson/dist/index.js'
-  
-    const sj = new SubmitJSON({ apiKey: 'sjk_xxx', endpoint: 'XxXx' })
-  
-    document.getElementById('myForm').addEventListener('submit', async function (e) {
+<form name="email-signup" id="contactForm" method="POST" class="signup-form">
+  <div class="form-group">
+    <input
+      type="email"
+      id="email-id"
+      name="email"
+      placeholder="Enter your email"
+      required
+      class="email-input"
+    />
+    <button type="submit" class="submit-button"> Get Early Access </button>
+  </div>
+</form>
+
+<script type="module">
+  console.log("hello world");
+
+  // 🌱 Grab your endpoint's submission URL
+  const url = `https://api.submitjson.com/v1/submit/vJX28qdg5`;
+  const apiKey = "api_key_here";
+  console.log("apiKey", apiKey);
+
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async function (e) {
       e.preventDefault();
-  
       try {
-        const formData = new FormData(this);
-        const submission = await sj.submit(formData)
-        console.log('Submitted data:', submission)
+        const email = document.getElementById("email-id").value;
+        console.log("email", email);
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "X-API-Key": apiKey, // 🚨 replace with your API Key!
+          },
+          body: JSON.stringify({
+            // 🧪 Must pass a valid JSON object via the data property
+            data: {
+              email,
+            },
+          }),
+        });
+        // 🚛 Submit your data with the native JS fetch API
+        const submission = await response.json();
+
+        // {
+        //     "createdAt": "2025-06-24T23:22:58.306Z",
+        //     "data": {
+        //         "email": "seraphim.codes@gmail.com"
+        //     },
+        //     "emailNotification": false,
+        //     "emailTo": "seraphim.codes@gmail.com",
+        //     "emailStatus": null,
+        //     "emailSubject": "langmate {cc4b2f80}",
+        //     "emailReplyTo": null,
+        //     "emailFromName": "Submit JSON",
+        //     "emailBranding": true,
+        //     "endpointId": "a0b9cbd9-92a6-42bf-86c8-1d9f55be6f89",
+        //     "endpointName": "langmate",
+        //     "endpointSlug": "vJX28qdg5",
+        //     "projectId": "e5f466b9-b6cf-4ade-9ad2-a27f6cb30d1c",
+        //     "securityCaptcha": null,
+        //     "securityCors": false,
+        //     "securityHoneypot": false,
+        //     "seenAt": null,
+        //     "submissionFormat": "pretty",
+        //     "submissionId": "cc4b2f80-b82d-42de-943c-a58ac4e8e95f",
+        //     "submissionSound": "none",
+        //     "userId": "e2b42cc9-89c1-4b31-875f-d30cc39cef35",
+        //     "uniqueKey": null,
+        //     "slackChannel": null,
+        //     "slackStatus": null,
+        //     "discordChannel": null,
+        //     "discordStatus": null,
+        //     "zapierStatus": null,
+        //     "webhookStatus": null,
+        //     "telegramStatus": null,
+        //     "telegramName": null
+        // }
+
+        console.log("📦 Submission response:", submission);
       } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error("There was a problem with the fetch operation:", error);
       }
     });
-  </script>
-  
+</script>

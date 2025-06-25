@@ -2,7 +2,7 @@
 // This is the frontmatter - we can add JavaScript here if needed
 
 // Import the CSS file
-import "./styles.css";
+import "./_styles.css";
 import ContactForm from "../components/ContactForm.astro";
 ---
 
@@ -42,26 +42,6 @@ import ContactForm from "../components/ContactForm.astro";
 
 				<!-- Email signup form with Netlify integration -->
 				<div id="signup-section">
-					<!-- <form name="email-signup" method="POST" class="signup-form">
-						<input
-							type="hidden"
-							name="form-name"
-							value="email-signup"
-						/>
-
-						<div class="form-group">
-							<input
-								type="email"
-								name="email"
-								placeholder="Enter your email"
-								required
-								class="email-input"
-							/>
-							<button type="submit" class="submit-button">
-								Get Early Access
-							</button>
-						</div>
-					</form> -->
 					<ContactForm />
 					<!-- Share button for initial page -->
 					<button class="share-button" onclick="shareContent()">
