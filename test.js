@@ -1,32 +1,36 @@
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
+import dotenv from 'dotenv';
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-  host: "mail.smtp2go.com",
-  port: 2525,
-  auth: {
-    user: process.env.SMTP2GO_USER,
-    pass: process.env.SMTP2GO_PASS,
+const url = 'https://api.smtp2go.com/v3/email/send';
+
+
+const options = {
+  method: 'POST',
+  headers: {
+    accept: 'application/json',
+    'Content-Type': 'application/json',
+    'X-Smtp2go-Api-Key': process.env.SMTP2GO_API_KEY
   },
-});
+  body: JSON.stringify({
+    sender: 'Langmate Team <hello@langmate.io>',
+    to: ['Rachel Kays <Rachelkays321@gmail.com>'],
+    subject: "👋 Welcome to Langmate's Waitlist",
+    html_body: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
+        <p style="font-size: 16px; line-height: 1.5;">Thanks for your interest in Langmate!</p>
+        <p style="font-size: 16px; line-height: 1.5;">We've added you to our waitlist and we'll let you know as soon as we launch. Feel free to reply to this email if you have any questions!</p>
+        <p style="font-size: 16px; line-height: 1.5;">Best regards,<br>The Langmate Team</p>
+      </div>
+    `,
+    text_body: `Thanks for your interest in Langmate! We've added you to our waitlist and we'll let you know as soon as we launch. Feel free to reply to this email if you have any questions!
 
-export const handler = async ({ body }) => {
-  const { data } = JSON.parse(body);
-  const email = data.email;
-  if (!email) return { statusCode: 400 };
-
-  const msg = {
-    from: "LangMate <noreply@langmate.io>",
-    to: email,
-    subject: "👋 You’re on the LangMate Waitlist!",
-    text: "Thanks for joining our waitlist! We'll keep you updated.",
-    html: `<p>Thanks for joining our waitlist! We'll keep you updated.</p>`,
-  };
-
-  await transporter.sendMail(msg);
-  return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+Best regards,
+The Langmate Team`,
+    reply_to: 'hello@langmate.io',
+  })
 };
 
-handler({ body: JSON.stringify({ data: { email: "seraphim.codes@gmail.com" } }) });
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error(err));
