@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const url = 'https://api.smtp2go.com/v3/email/send';
-
+const name = 'Seraphim Teacher';
+const email = 'seraphim.teacher@gmail.com';
 
 const options = {
   method: 'POST',
@@ -13,7 +14,7 @@ const options = {
   },
   body: JSON.stringify({
     sender: 'Langmate Team <hello@langmate.io>',
-    to: ['Rachel Kays <Rachelkays321@gmail.com>'],
+    to: ['${name} <${email}>'],
     subject: "👋 Welcome to Langmate's Waitlist",
     html_body: `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
