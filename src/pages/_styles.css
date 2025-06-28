@@ -61,40 +61,42 @@
 	.description {
 		font-size: 1.1rem;
 		color: #6b7280;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 		line-height: 1.6;
 	}
 
 	/* Form styling */
-
 	.form-group {
 		display: flex;
-		gap: 0;
+		flex-direction: column;
+		gap: 0.5rem;
 		max-width: 400px;
 		margin: 0 auto;
-		border-radius: 8px;
-		overflow: hidden;
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 	}
 
+	.name-input,
 	.email-input {
-		flex: 1;
+		width: 100%;
 		padding: 1rem 1.5rem;
-		border: none;
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
 		font-size: 1rem;
 		background-color: white;
 		outline: none;
 	}
 
+	.name-input::placeholder,
 	.email-input::placeholder {
 		color: #9ca3af;
 	}
 
 	.submit-button {
+		width: 100%;
 		padding: 1rem 2rem;
 		background-color: #00bfff;
 		color: white;
 		border: none;
+		border-radius: 8px;
 		font-size: 1rem;
 		font-weight: 500;
 		cursor: pointer;
@@ -163,16 +165,13 @@
 		}
 
 		.form-group {
-			flex-direction: column;
-			border-radius: 8px;
+			gap: 0.5rem;
 		}
 
-		.email-input {
-			border-radius: 8px 8px 0 0;
-		}
-
+		.name-input,
+		.email-input,
 		.submit-button {
-			border-radius: 0 0 8px 8px;
+			border-radius: 8px;
 		}
 	}
 

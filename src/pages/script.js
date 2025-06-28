@@ -101,23 +101,29 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("submit", async function (e) {
       e.preventDefault();
       try {
+        const name = document.getElementById("name-id").value;
         const email = document.getElementById("email-id").value;
+        console.log("name", name);
         console.log("email", email);
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            "X-API-Key": apiKey,
-          },
-          body: JSON.stringify({
-            data: {
-              email,
-            },
-          }),
-        });
 
-        const submission = await response.json();
-        console.log("📦 Submission response:", submission);
+        const data = {
+          name
+        };
+        // const response = await fetch(url, {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //     "X-API-Key": apiKey,
+        //   },
+        //   body: JSON.stringify({
+        //     data: {
+        //       email,
+        //     },
+        //   }),
+        // });
+
+        // const submission = await response.json();
+        // console.log("📦 Submission response:", submission);
 
         // {
         //     "createdAt": "2025-06-24T23:22:58.306Z",
@@ -154,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //     "telegramName": null
         // }
 
-        console.log("📦 Submission response:", submission);
+        // console.log("📦 Submission response:", submission);
 
         // Hide signup section and show success section
         document.getElementById("signup-section").style.display = "none";
