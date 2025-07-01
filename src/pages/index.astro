@@ -97,10 +97,10 @@ import ContactForm from "../components/ContactForm.astro";
       </div>
     </main>
     <script>
-      // @ts-nocheck
+      //   @ts-nocheck
       import SubmitJSON from "submitjson";
       // Share functionality
-      async function shareContent() {
+      async function shareContent(event) {
         const shareData = {
           title: "Langmate - Practice Languages with Native Speakers",
           text: "Check out Langmate! Practice languages through structured video sessions with native speakers.",
@@ -111,17 +111,15 @@ import ContactForm from "../components/ContactForm.astro";
           if (navigator.share) {
             await navigator.share(shareData);
           } else {
-            // Fallback: copy to clipboard
-            await navigator.clipboard.writeText(
-              `${shareData.text} ${shareData.url}`
-            );
+            // Fallback: copied link to clipboard
+            await navigator.clipboard.writeText(shareData.url);
 
             // Show temporary feedback
             const button =
               event.target.closest(".share-button") ||
               event.target.closest(".share-button-primary");
             const originalText = button.innerHTML;
-            button.innerHTML = "<span>✅ Copied to clipboard!</span>";
+            button.innerHTML = "<span>✅ Copied link to clipboard!</span>";
 
             setTimeout(() => {
               button.innerHTML = originalText;
@@ -138,17 +136,25 @@ import ContactForm from "../components/ContactForm.astro";
           .querySelector(".share-button")
           ?.addEventListener("click", shareContent);
 
-        const apiKey = import.meta.env.PUBLIC_SUBMIT_JSON_API_KEY;
-
-        const sj = new SubmitJSON({ apiKey: apiKey, endpoint: "vJX28qdg5" });
+        document
+          .querySelector(".share-button-primary")
+          ?.addEventListener("click", shareContent);
 
         document
           .getElementById("contactForm")
           .addEventListener("submit", async function (e) {
             e.preventDefault();
+
+            const apiKey = import.meta.env.PUBLIC_SUBMIT_JSON_API_KEY;
+
+            const sj = new SubmitJSON({
+              apiKey: apiKey,
+              endpoint: "vJX28qdg5",
+            });
+
             try {
-              const formData = new FormData(this);
-              await sj.submit(formData);
+                const formData = new FormData(this);
+                await sj.submit(formData);
               // Hide signup section and show success section
               document.getElementById("signup-section").style.display = "none";
               document.getElementById("success-section").style.display =
