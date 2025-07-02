@@ -98,10 +98,8 @@ import ContactForm from "../components/ContactForm.astro";
           <div class="error-content">
             <div class="error-icon">❌</div>
             <h3>Oops! Something went wrong</h3>
-            <p>Please try again, or contact us if the problem persists.</p>
-            <button class="try-again-button" onclick="showSignupForm()"
-              >Try Again</button
-            >
+            <p>Please try again, or send us an email at hello@langmate.io</p>
+            <button class="try-again-button">Try Again</button>
           </div>
         </div>
 
@@ -150,6 +148,13 @@ import ContactForm from "../components/ContactForm.astro";
         }
       }
 
+      const showSignupForm = () => {
+        document.getElementById("signup-section").style.display = "block";
+        document.getElementById("loader-section").style.display = "none";
+        document.getElementById("error-section").style.display = "none";
+        document.getElementById("success-section").style.display = "none";
+      };
+
       // Add event listener after DOM loads
       document.addEventListener("DOMContentLoaded", () => {
         document
@@ -159,6 +164,10 @@ import ContactForm from "../components/ContactForm.astro";
         document
           .querySelector(".share-button-primary")
           ?.addEventListener("click", shareContent);
+
+        document
+          .querySelector(".try-again-button")
+          ?.addEventListener("click", showSignupForm);
 
         document
           .getElementById("contactForm")
@@ -177,10 +186,8 @@ import ContactForm from "../components/ContactForm.astro";
             });
 
             try {
-              await new Promise((resolve) => setTimeout(resolve, 4000));
-              throw new Error("Test error");
-              // const formData = new FormData(this);
-              // await sj.submit(formData);
+              const formData = new FormData(this);
+              await sj.submit(formData);
               // Hide signup section and show success section
               document.getElementById("success-section").style.display =
                 "block";

@@ -376,7 +376,7 @@
 	.error-section {
 		margin-top: 1rem;
 		text-align: center;
-		padding: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	/* Mobile responsiveness for new sections */
