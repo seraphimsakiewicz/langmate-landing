@@ -2,9 +2,7 @@
 // dotenv.config();
 
 export const handler = async (event: any) => {
-  console.log("event", event);
-  const { data } = event.body || {};
-  console.log("hey broooooo", data);
+  const { data } = JSON.parse(event.body || "{}");
   if (!data) {
     return { statusCode: 500, error: "No data in body of event found." };
   }
