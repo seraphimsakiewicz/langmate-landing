@@ -2,8 +2,9 @@
 // dotenv.config();
 
 export const handler = async (event: any) => {
+  console.log("event", event);
   const { data } = event.body || {};
-  console.log("data", data);
+  console.log("hey broooooo", data);
   if (!data) {
     return { statusCode: 500, error: "No data in body of event found." };
   }
